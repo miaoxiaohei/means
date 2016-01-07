@@ -1,0 +1,7 @@
+{
+  "main": "index.html",
+  "name": "means",
+  "window": {
+   "toolbar": false //这个选项对于开发太重要了
+  }
+}
