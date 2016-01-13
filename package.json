@@ -1,7 +1,13 @@
 {
-  "main": "index.html",
   "name": "means",
-  "window": {
-   "toolbar": false //这个选项对于开发太重要了
+  "description":"我们的梦想",
+  "version": "0.1.0",
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miaoxiaohei/means.git"
+  },
+  "devDependencies": {
+    "electron-packager": "^5.2.0",
+    "gulp": "^3.9.0"
   }
 }
