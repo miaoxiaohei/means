@@ -24,6 +24,8 @@ gulp.task('packagOSX-64', function() {
     arch:'x64',
     version:electronVersion,
     overwrite:true,
+    icon:"./assess/assets-osx/icon.icns",
+    out:'./dist',
   };
   console.log(opts);
   packager(opts, function done (err, appPath) {
