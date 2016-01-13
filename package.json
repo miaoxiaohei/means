@@ -1,13 +1,15 @@
 {
   "name": "means",
-  "description":"我们的梦想",
+  "description": "我们的梦想",
   "version": "0.1.1",
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/miaoxiaohei/means.git"
   },
   "devDependencies": {
     "electron-packager": "^5.2.0",
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-appdmg": "^1.0.2",
+    "shelljs": "^0.5.3"
   }
 }

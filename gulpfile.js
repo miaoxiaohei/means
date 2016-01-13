@@ -1,22 +1,12 @@
 var gulp = require('gulp');
-var packager = require('electron-packager')
+var packager = require('electron-packager');
+var appdmg = require('gulp-appdmg');
+var shelljs = require('shelljs');
 var electronVersion = '0.36.3';
-var packagOutDir = './dist';
-gulp.task('packagAll', function() {
-  // 打包
-  var opts = {
-  	dir:'./src',
-  	name:'means',
-  	all:true,
-  	version:electronVersion,
-    overwrite:true,
-  };
-  console.log(opts);
-  packager(opts, function done (err, appPath) {
-   });
-});
+var packagBuildOutDir = './build';
+var packagDistOutDir = './dist';
 
-gulp.task('packagOSX-64', function() {
+gulp.task('build:osx-64', function() {
   // 打包
   var opts = {
     dir:'./src',
@@ -25,8 +15,8 @@ gulp.task('packagOSX-64', function() {
     arch:'x64',
     version:electronVersion,
     overwrite:true,
-    icon:"./assess/assets-osx/icon.icns",
-    out:packagOutDir,
+    icon:"./assets/osx/icon.icns",
+    out:packagBuildOutDir,
   };
   console.log(opts);
   packager(opts, function done (err, appPath) {
@@ -35,7 +25,7 @@ gulp.task('packagOSX-64', function() {
    });
 });
 
-gulp.task('packagWin32-64', function() {
+gulp.task('build:win32-64', function() {
   // 打包
   var opts = {
     dir:'./src',
@@ -43,13 +33,28 @@ gulp.task('packagWin32-64', function() {
     platform:'win32',
     arch:'x64',
     version:electronVersion,
-    //icon:"./assess/assets-windows/icon.ico",
+    // icon:"./assets/windows/icon.ico",
     overwrite:true,
-    out:packagOutDir,
+    out:packagBuildOutDir,
   };
   console.log(opts);
   packager(opts, function done (err, appPath) {
       console.log(appPath);
 
    });
+});
+
+gulp.task('dist:osx-64', function() {
+  // 打包
+  return  gulp.src([])
+    .pipe(appdmg({
+      source: './assets/osx/dmg.json',
+      target: packagDistOutDir+'/means.dmg'
+    }));
+});
+
+gulp.task('dist:win32-64', function() {
+  // 打包
+     shelljs.exec('makensis ./assets/windows/installer.nsi');
+
 });
