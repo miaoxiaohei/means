@@ -7,6 +7,7 @@
     "url": "git+https://github.com/miaoxiaohei/means.git"
   },
   "devDependencies": {
+    "bower": "^1.7.2",
     "electron-packager": "^5.2.0",
     "gulp": "^3.9.0",
     "gulp-appdmg": "^1.0.2",

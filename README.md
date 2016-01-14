@@ -6,4 +6,8 @@ use:
 
 3.	npm install
 
+4. cd src
+
+5. ./node_modules/bower/bin/bower	
+
 4.	./node_modules/gulp/bin/gulp.js  packagOSX-64

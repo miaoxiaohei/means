@@ -2,9 +2,19 @@ var gulp = require('gulp');
 var packager = require('electron-packager');
 var appdmg = require('gulp-appdmg');
 var shelljs = require('shelljs');
+childProcess  = require('child_process'), 
+  electron      = require('electron-prebuilt');
 var electronVersion = '0.36.3';
 var packagBuildOutDir = './build';
 var packagDistOutDir = './dist';
+
+
+gulp.task('run', function() {
+    childProcess.spawn(electron, ['./src'], { stdio: 'inherit' }); 
+
+
+});
+
 
 gulp.task('build:osx-64', function() {
   // 打包
@@ -58,3 +68,13 @@ gulp.task('dist:win32-64', function() {
      shelljs.exec('makensis ./assets/windows/installer.nsi');
 
 });
+
+
+gulp.task('clean', function() {
+  // 打包
+     shelljs.exec('rm -rf ./build');
+     shelljs.exec('rm -rf ./dist');
+
+
+});
+
