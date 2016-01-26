@@ -1,35 +1,38 @@
-<div style="width:100%" layout="column">
-    <md-toolbar layout="row">
-        <button ng-click="toggleSidenav('left')" hide-gt-sm class="menuBtn">
-            <span class="visuallyhidden">Menu</span>
-        </button>
-        <h1>My Favorite Muppets</h1>
-                                        <h2>{{_ctrl.name}}</h2>
-
-    </md-toolbar>
-    <div layout="row" flex class="content-wrapper">
-        <!-- <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')"> -->
-        
-            <md-list class="muppet-list">
-                                                    <h2>{{_ctrl.name}}</h2>
-
-                <md-item ng-repeat="it in _ctrl.muppets">
-                    <md-item-content>
-                        <md-button ng-click="selectMuppet(it)" ng-class="{'selected' : it === selected }">
-                            <img ng-src="{{it.iconurl}}" class="face" alt=""> {{it.name}}
-                        </md-button>
-                    </md-item-content>
-                </md-item>
-            </md-list>
-        <!-- </md-sidenav> -->
-        <div layout="column" flex class="content-wrapper" id="primary-col">
-            <md-content layout="column" flex class="md-padding">
-                <h2>{{_ctrl.selected.name}}</h2>
-                <p>{{_ctrl.selected.content}}</p>
-                <div class="cell">
-                    <img ng-src="{{_ctrl.selected.imgurl}}" alt="{{_ctrl.selected.imgalt}}">
-                </div>
-            </md-content>
-        </div>
+<div layout="column" layout-fill>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Settings">
+          <md-icon md-svg-icon="./web/img/menu.svg"></md-icon>
+        </md-button>
+      <span>My App's Title</span>
+      <!-- fill up the space between left and right area -->
+      <!-- <span flex></span> -->
+<!--       <div class="md-toolbar-tools" flex><i class="icon-search search"></i> <input class="search-input" type="text" placeholder="搜索员工（姓名/昵称/邮箱)"> <i class="icon-close delete" style="display: none;"></i></div>
+ -->
+ <!-- <div flex> -->
+<div layout="row" layout-align="center center" flex>
+  <md-input-container  class="md-block  md-accent" flex="50">
+      <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+      <input  ng-model="user.phone" type="text" placeholder="Phone Number">
+    </md-input-container>
+ </div>
+<!-- </div> -->
+     
+      <md-button>
+        Right Bar Button
+      </md-button>
+      <md-button class="md-fab" aria-label="refresh">
+        <md-tooltip md-direction="left">
+          Refresh
+        </md-tooltip>
+        <md-icon  md-svg-icon="./web/img/ic_face_white_48px.svg"  style="width: 24px; height: 24px;">
+        </md-icon>
+      </md-button>
     </div>
+  </md-toolbar>
+  <md-content>
+    Hello!
+    <i class="material-icons">face</i>
+    <i class="material-icons">&#xE87C;</i>
+  </md-content>
 </div>
