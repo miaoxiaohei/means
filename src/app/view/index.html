@@ -5,19 +5,20 @@
           <md-icon md-svg-icon="./web/img/menu.svg"></md-icon>
         </md-button>
       <span>My App's Title</span>
-      <!-- fill up the space between left and right area -->
-      <!-- <span flex></span> -->
-<!--       <div class="md-toolbar-tools" flex><i class="icon-search search"></i> <input class="search-input" type="text" placeholder="搜索员工（姓名/昵称/邮箱)"> <i class="icon-close delete" style="display: none;"></i></div>
- -->
- <!-- <div flex> -->
 <div layout="row" layout-align="center center" flex>
-  <md-input-container  class="md-block  md-accent" flex="50">
-      <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
-      <input  ng-model="user.phone" type="text" placeholder="Phone Number">
-    </md-input-container>
+  <md-content  layout="column" flex="60" class="md-whiteframe-z1">
+    <form ng-submit="$event.preventDefault()">
+        <md-autocomplete md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="What is your favorite US state?"  layout-padding>
+              <md-item-template>
+                <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+              </md-item-template>
+              <md-not-found>
+                No states matching "{{ctrl.searchText}}" were found.
+              </md-not-found>
+            </md-autocomplete>
+          </form>
+  </md-content>
  </div>
-<!-- </div> -->
-     
       <md-button>
         Right Bar Button
       </md-button>
@@ -30,9 +31,29 @@
       </md-button>
     </div>
   </md-toolbar>
-  <md-content>
-    Hello!
-    <i class="material-icons">face</i>
-    <i class="material-icons">&#xE87C;</i>
-  </md-content>
+
+<div flex layout="row">
+    <md-sidenav flex="20" md-is-locked-open="true" class="md-whiteframe-z1"  layout-padding="400">
+<md-tabs  class="md-whiteframe-z1"  md-center-tabs="true">
+  <md-tab label="邮箱" layout="column">
+    <section layout="column" layout-align="center center" >
+      <md-button class="md-whiteframe-z1  flex-20" >00000000000</md-button>
+      <md-button class="md-whiteframe-z1" layout="row"  >11111111111</md-button>
+      <md-button  class="md-whiteframe-z1" layout="row" >22222222</md-button>
+      <md-button class="md-whiteframe-z1" layout="row"  >3333333</md-button>
+    </section>
+  </md-tab>
+  <md-tab label="好友">
+  22222
+  </md-tab>
+</md-tabs>
+    </md-sidenav>
+    <div layout="column" flex>
+      <md-content>
+      conetet
+      </md-conten>
+    </div>
+
+  </div>
+
 </div>
